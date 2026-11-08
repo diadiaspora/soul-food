@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mama's Soul Kitchen | Soul Food Delivery &amp; Pickup</title>
+  <meta name="description" content="Authentic soul food: fried chicken, collard greens, mac and cheese, peach cobbler and more. Order for delivery or pickup.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top bar: phone + delivery/pickup -->
+  <div class="topbar">
+    <a class="phone" id="phoneLink" href="tel:+15555550123" aria-label="Call us">
+      <span class="phone-icon">&#9742;</span>
+      <span class="phone-text">
+        <small>Call to order</small>
+        <strong id="phoneText">(555) 555-0123</strong>
+      </span>
+    </a>
+
+    <div class="mode-toggle" role="group" aria-label="Order type">
+      <button class="mode-btn active" data-mode="Delivery" type="button">
+        <span aria-hidden="true">&#128666;</span> Delivery
+      </button>
+      <button class="mode-btn" data-mode="Pickup" type="button">
+        <span aria-hidden="true">&#128717;</span> Pickup
+      </button>
+    </div>
+
+    <a class="messenger-btn" id="messengerTop" href="https://m.me/YOUR_PAGE_NAME" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 2C6.48 2 2 6.14 2 11.25c0 2.9 1.45 5.48 3.72 7.17V22l3.4-1.87c.9.25 1.86.39 2.88.39 5.52 0 10-4.14 10-9.27S17.52 2 12 2Zm1.03 12.47-2.55-2.72-4.97 2.72 5.47-5.8 2.61 2.72 4.91-2.72-5.47 5.8Z"/></svg>
+      <span>Order on Messenger</span>
+    </a>
+
+    <button class="cart-btn" id="cartBtn" type="button" aria-label="Open your order">
+      <span aria-hidden="true">&#128722;</span>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+
+  <!-- Brand + section nav -->
+  <header class="site-header">
+    <div class="brand">
+      <h1>Mama's Soul Kitchen</h1>
+      <p>Southern comfort, made from scratch</p>
+    </div>
+    <nav class="section-nav" id="sectionNav" aria-label="Menu sections"></nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h2>Good food. Good people. Home cooking.</h2>
+      <p>Order for <strong class="mode-label">Delivery</strong> in a few taps, then send it straight to us on Messenger.</p>
+      <div class="hero-actions">
+        <a href="#menu" class="btn btn-primary">See the Menu</a>
+        <a class="btn btn-messenger" id="messengerHero" href="https://m.me/YOUR_PAGE_NAME" target="_blank" rel="noopener">Message Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu (filled by script.js) -->
+  <main id="menu"></main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p><strong>Mama's Soul Kitchen</strong> &middot; 123 Main Street, Your City</p>
+    <p>Call <a id="phoneFooter" href="tel:+15555550123">(555) 555-0123</a> &middot; Open daily 11am&ndash;9pm</p>
+  </footer>
+
+  <!-- Cart drawer -->
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Your order">
+    <div class="drawer-head">
+      <h3>Your Order</h3>
+      <button class="icon-btn" id="closeCart" type="button" aria-label="Close">&times;</button>
+    </div>
+
+    <div class="drawer-mode">
+      <span>Order type:</span>
+      <strong class="mode-label">Delivery</strong>
+    </div>
+
+    <ul class="cart-list" id="cartList"></ul>
+    <p class="empty" id="cartEmpty">Your order is empty. Tap <em>Order</em> on any dish to add it.</p>
+
+    <div class="drawer-fields">
+      <label for="custName">Your name</label>
+      <input id="custName" type="text" placeholder="Name" autocomplete="name">
+      <label for="custAddress" id="addressLabel">Delivery address</label>
+      <input id="custAddress" type="text" placeholder="Street, apt, city" autocomplete="street-address">
+      <label for="custNotes">Notes (optional)</label>
+      <input id="custNotes" type="text" placeholder="Allergies, extra gravy, etc.">
+    </div>
+
+    <div class="drawer-foot">
+      <div class="total-row"><span>Total</span><strong id="cartTotal">$0.00</strong></div>
+      <button class="btn btn-messenger btn-block" id="sendMessenger" type="button">
+        Send Order on Messenger
+      </button>
+      <p class="hint" id="hint">We'll copy your order, then open Messenger. Just paste and send.</p>
+      <a class="btn btn-outline btn-block" id="callBtn" href="tel:+15555550123">Or call to order</a>
+      <button class="link-btn" id="clearCart" type="button">Clear order</button>
+    </div>
+  </aside>
+
+  <!-- Sticky mobile bar -->
+  <div class="mobile-bar">
+    <a href="tel:+15555550123" class="mb-call" id="mobileCall">&#9742; Call</a>
+    <a href="https://m.me/YOUR_PAGE_NAME" target="_blank" rel="noopener" class="mb-msg" id="mobileMsg">Messenger</a>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
